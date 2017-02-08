@@ -4,7 +4,7 @@ from django.db import models
 class Location(models.Model):
     lat = models.DecimalField(max_digits=15, decimal_places=8)
     long = models.DecimalField(max_digits=15, decimal_places=8)
-    pcn = models.ForeignKey(
+    student = models.ForeignKey(
         'Student',
         on_delete=models.PROTECT)
     timestamp = models.DateTimeField()
@@ -23,3 +23,6 @@ class Student(models.Model):
     title = models.CharField(max_length=255)
     personalTitle = models.CharField(max_length=255)
     employeeId = models.IntegerField()
+
+    def __str__(self):
+        return self.id

@@ -7,7 +7,7 @@ from location.serializers import LocationSerializer, StudentSerializer
 class LocationViewSet(viewsets.ModelViewSet):
     queryset = Location.objects.all()
     serializer_class = LocationSerializer
-    filter_fields = ('pcn', 'timestamp')
+    filter_fields = ('student', 'timestamp')
 
 
 class StudentViewSet(viewsets.ModelViewSet):

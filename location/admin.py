@@ -5,13 +5,13 @@ from location.models import Location, Student
 
 
 class LocationAdmin(admin.ModelAdmin):
-    list_display = ('lat', 'long', 'pcn', 'timestamp')
-    list_filter = ('pcn', 'timestamp')
+    list_display = ('lat', 'long', 'student', 'timestamp')
+    list_filter = ('student', 'timestamp')
 
 
 class StudentAdmin(admin.ModelAdmin):
     list_display = ('id', 'givenName', 'mail')
-    search_fields = ['pcn', 'givenName']
+    search_fields = ['u', 'givenName']
 
 
 admin.site.register(Location, LocationAdmin)
