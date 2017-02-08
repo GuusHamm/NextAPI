@@ -12,8 +12,25 @@ class StudentSerializer(serializers.HyperlinkedModelSerializer):
 
 # class LocationSerializer(serializers.HyperlinkedModelSerializer):
 class LocationSerializer(serializers.ModelSerializer):
-    student = StudentSerializer(many=False, read_only=True)
+
 
     class Meta:
         model = Location
         fields = ('lat', 'long', 'student', 'timestamp')
+
+    # def create(self, validated_data):
+    #     print(validated_data)
+    #     student_id = validated_data.student.id
+    #
+    #     get_object_or_404(Student, id=)
+    #     student = Student.objects.get(id=student_id)
+    #     validated_data.student = student
+    #
+    #     location  = Location.objects.create(**validated_data)
+    #     return location
+
+
+class LocationReadSerializer(LocationSerializer):
+    student = StudentSerializer(many=False)
+
+
