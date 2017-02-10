@@ -10,6 +10,15 @@ class Location(models.Model):
     timestamp = models.DateTimeField()
 
 
+class Grade(models.Model):
+    date = models.DateTimeField()
+    item = models.CharField(max_length=255)
+    itemCode = models.CharField(max_length=255)
+    grade = models.IntegerField(max_length=3)
+    passed = models.BooleanField()
+    student = models.ForeignKey('Student', on_delete=models.PROTECT)
+
+
 class Student(models.Model):
     id = models.CharField(max_length=255, primary_key=True)
     url = models.CharField(max_length=255)
